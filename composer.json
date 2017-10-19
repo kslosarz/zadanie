@@ -1,0 +1,10 @@
+{
+    "name": "kamil/zadanie",
+    "authors": [
+        {
+            "name": "Kamil",
+            "email": "ka.slosarz@gmail.com"
+        }
+    ],
+    "require": {}
+}
