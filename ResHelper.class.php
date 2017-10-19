@@ -34,15 +34,14 @@ class ResHelper
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, urldecode(http_build_query($data)));
 
-        $start = microtime();
         curl_exec($curl);
-        $end = microtime() - $start;
-
         if (curl_error($curl)) {
+
             self::$lastException = new \Exception(curl_error($curl));
             return false;
         } else {
-            self::$lastTimes[] = $end;
+            $info = curl_getinfo($curl);
+            self::$lastTimes[] = $info['total_time'];
         }
 
         return true;
